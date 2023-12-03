@@ -61,17 +61,17 @@
   </div>
   <div class="card-body">
     <div class="row">
-        {{#each images}}
-            <div class="col-md-4 text-center">
-            <a href="/images/{{uniqueId}}">
-                <img
-                    src="/public/upload/{{filename}}"
-                    alt="{{title}}"
-                    class="w-100 h-100 img-thumbnail"
-                />
-            </a>
-            </div>
-        {{/each}}
+      {{#each images}}
+        <div class="col-md-4 text-center">
+          <a href="/images/{{uniqueId}}">
+            <img
+              src="/public/upload/{{filename}}"
+              alt="{{title}}"
+              class="w-100 h-100 img-thumbnail"
+            />
+          </a>
+        </div>
+      {{/each}}
     </div>
   </div>
 </div>

@@ -6,8 +6,9 @@ const {Image} = require('../models/index')
 
 const ctrl = {};
 
-ctrl.index = (req , res)=>{
-    res.send('Index img')
+ctrl.index =async (req , res)=>{
+    const image = await Image.findOne({filename : {$regex : req.params.image_id}})
+    res.render('image', {image})
 }
 
 ctrl.create = async (req , res)=>{
@@ -30,7 +31,7 @@ ctrl.create = async (req , res)=>{
     
                 })
                 const imageSaved = await newImg.save();
-                res.send('works!!!')
+                res.redirect('/images/' + imgUrl)
             }
             else{
                 await fs.unlink(imageTempPath );
