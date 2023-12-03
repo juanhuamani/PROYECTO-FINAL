@@ -12,9 +12,8 @@ const imageSchema = new Schema({
     timestamp : { type : Date , default : Date.now } 
 })
 
-imageSchema.virtual('uniqueId')
-    .get(()=>{
-        return this.filename.replace(path.extname(this.filename) , '');
-    })
+imageSchema.virtual('uniqueId').get(function() {
+    return this.filename.replace(path.extname(this.filename), '');
+});
 
 module.exports = mongoose.model('Image' , imageSchema);

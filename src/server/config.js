@@ -16,7 +16,11 @@ module.exports = (app) =>{
         partialsDir: path.join(app.get('views'), 'partials'),
         layoutsDir: path.join(app.get('views'), 'layouts'),
         extname: '.hbs',
-        helpers: require('./helpers')
+        helpers: require('./helpers'),
+        runtimeOptions: {
+            allowProtoPropertiesByDefault: true,
+            allowProtoMethodsByDefault: true,
+        },
     });
 
     app.engine('.hbs', hbs.engine);
@@ -34,7 +38,8 @@ module.exports = (app) =>{
 
     routes(app);
 
-    app.use('/public' , express.static(path.join(__dirname , '../public')))
+    app.use('/public', express.static(path.join(__dirname, '../public')));
+
 
     if('development' ===  app.get('env'))
         app.use(errorHandler);
