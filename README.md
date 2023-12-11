@@ -14,8 +14,7 @@ Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y 
 git clone https://github.com/juanhuamani/PROYECTO-FINAL
 cd PROYECTO-FINAL
 npm install
-npm run build
-npm start
+npm run dev
 ```
 
 # Intalacion con docker-compose (Recomendado)
