@@ -1,5 +1,5 @@
 module.exports = {
-    database :{
-        URI : 'mongodb://localhost/imgshare2'
+    database: {
+        URI: process.env.MONGODB_URI || 'mongodb://localhost/imgshare'
     }
-}
+};
