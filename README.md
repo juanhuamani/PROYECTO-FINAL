@@ -1,24 +1,24 @@
-# imgShare
+# PROYECTO FINAL
 
-imgShare is a web application to share images, comments, and more.
+Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y más.
 
 
-# Environment Variables
+# Variables de entorno
 
 - `MONGODB_URI`, the mongodb database uri
 - `PORT` the http server port. By default is `3000`
 
-# Installation
+# Instalacion
 
 ```
 git clone https://github.com/FaztTech/nodejs-imgshare
-cd nodejs-imagshare
+cd PROYECTO-FINAL
 npm install
 npm run build
 npm start
 ```
 
-# Installation with docker-compose (Recommended)
+# Intalacion con docker-compose (Recomendado)
 
 ```
 docker-compose up
