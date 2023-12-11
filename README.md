@@ -11,7 +11,7 @@ Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y 
 # Instalacion
 
 ```
-git clone https://github.com/FaztTech/nodejs-imgshare
+git clone https://github.com/juanhuamani/PROYECTO-FINAL
 cd PROYECTO-FINAL
 npm install
 npm run build
