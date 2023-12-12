@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "$PATH:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin"
+    }
+
     stages {
         stage('Clonar repositorio') {
             steps {
@@ -10,13 +14,17 @@ pipeline {
 
         stage('Construir imagen Docker') {
             steps {
-                sh 'docker build -t ConstuccionFinal .'
+                script {
+                    bat 'docker build -t ConstuccionFinal .'
+                }
             }
         }
 
         stage('Desplegar Docker Compose') {
             steps {
-                sh 'docker-compose up -d'
+                script {
+                    bat 'docker-compose up -d'
+                }
             }
         }
     }
