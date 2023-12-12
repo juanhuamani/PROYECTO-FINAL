@@ -12,6 +12,15 @@ pipeline {
             }
         }
 
+        stage('Construccion automatica') {
+            steps {
+                script {
+                    bat 'npm install'
+                    bat 'npm run dev'
+                }
+            }
+        }
+
         stage('Construir imagen Docker') {
             steps {
                 script {
@@ -20,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('Desplegar Docker Compose') {
+        stage('Despliegue automatico') {
             steps {
                 script {
                     bat 'docker-compose up -d'
