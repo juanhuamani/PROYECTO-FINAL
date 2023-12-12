@@ -17,8 +17,7 @@ pipeline {
                 script {
                     bat 'npm install'
                     bat 'npm run dev'
-                    bat 'timeout /nobreak /t 10 >nul'
-                    bat 'taskkill /F /T /IM node.exe'
+                    bat 'ping localhost -n 11 > nul && taskkill /F /IM node.exe'
                 }
             }
         }
