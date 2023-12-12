@@ -2,40 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clonar repositorio') {
             steps {
-                checkout scm
+                git 'https://github.com/juanhuamani/PROYECTO-FINAL.git'
             }
         }
 
-        stage('Build') {
+        stage('Construir imagen Docker') {
             steps {
-                sh 'npm install' 
+                sh 'docker build -t ConstuccionFinal .'
             }
         }
 
-        stage('Test') {
+        stage('Desplegar Docker Compose') {
             steps {
-                sh 'npm test' 
+                sh 'docker-compose up -d'
             }
-        }
-
-        stage('Deploy') {
-            steps {
-
-                sh 'npm run dev' 
-            }
-        }
-    }
-
-    post {
-        success {
-            // Acciones a realizar cuando el pipeline es exitoso
-            echo 'El pipeline se ejecutó con éxito'
-        }
-        failure {
-            // Acciones a realizar cuando el pipeline falla
-            echo 'El pipeline ha fallado'
         }
     }
 }
