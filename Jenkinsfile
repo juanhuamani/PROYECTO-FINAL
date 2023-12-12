@@ -15,7 +15,7 @@ pipeline {
         stage('Construir imagen Docker') {
             steps {
                 script {
-                    bat 'docker build -t ConstuccionFinal .'
+                    bat 'docker build -t proyecto-final .'
                 }
             }
         }
