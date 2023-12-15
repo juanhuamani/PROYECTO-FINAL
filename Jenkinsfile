@@ -12,7 +12,7 @@ pipeline {
             }
         }
 
-        stage('Construcción automática') {
+        stage('Construccion automática') {
             steps {
                 script {
                     bat 'npm install'
@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Análisis SonarQube') {
+        stage('Analisis SonarQube') {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
@@ -39,7 +39,7 @@ pipeline {
             }
         }
 
-        stage('Despliegue automático') {
+        stage('Despliegue automatico') {
             steps {
                 script {
                     bat 'docker-compose up -d'
