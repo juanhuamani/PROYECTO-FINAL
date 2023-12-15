@@ -12,10 +12,20 @@ pipeline {
             }
         }
 
-        stage('Construccion automatica') {
+        stage('Construcción automática') {
             steps {
                 script {
                     bat 'npm install'
+                }
+            }
+        }
+
+        stage('Análisis SonarQube') {
+            steps {
+                script {
+                    withSonarQubeEnv('sonar-server') {
+                        bat 'mvn clean package sonar:sonar'
+                    }
                 }
             }
         }
@@ -28,7 +38,7 @@ pipeline {
             }
         }
 
-        stage('Despliegue automatico') {
+        stage('Despliegue automático') {
             steps {
                 script {
                     bat 'docker-compose up -d'
