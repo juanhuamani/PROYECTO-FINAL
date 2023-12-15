@@ -12,13 +12,15 @@ pipeline {
             }
         }
 
-        stage('Construccion automatica') {
+         stage('Construccion automatica') {
             steps {
                 script {
-                    bat 'npm install'
+                    if (isUnix()) {sh 'npm install'}
+                    else {bat 'npm install'}
                 }
             }
         }
+
 
         stage('Analisis SonarQube') {
             steps {
@@ -31,10 +33,11 @@ pipeline {
         }
 
 
-        stage('Construir imagen Docker') {
+       stage('Construir imagen Docker') {
             steps {
                 script {
-                    bat 'docker build -t proyecto-final .'
+                    if (isUnix()) {sh 'docker build -t proyecto-final .'}
+                    else {bat 'docker build -t proyecto-final .'}
                 }
             }
         }
@@ -42,7 +45,8 @@ pipeline {
         stage('Despliegue automatico') {
             steps {
                 script {
-                    bat 'docker-compose up -d'
+                    if (isUnix()) {sh 'docker-compose up -d'}
+                    else {bat 'docker-compose up -d'}
                 }
             }
         }
