@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'sonar-scanner -D sonar.projectKey=sqp_398caf2553fdc197065073a2a2459227ca74cd4d'
+                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnar'
                     }
                 }
             }
