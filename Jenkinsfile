@@ -12,7 +12,7 @@ pipeline {
             }
         }
 
-        stage('Construccion automática') {
+        stage('Construccion automatica') {
             steps {
                 script {
                     bat 'npm install'
