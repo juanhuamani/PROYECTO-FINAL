@@ -24,11 +24,12 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'mvn clean package sonar:sonar'
+                        bat 'sonar-scanner'
                     }
                 }
             }
         }
+
 
         stage('Construir imagen Docker') {
             steps {
