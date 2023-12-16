@@ -39,15 +39,12 @@ async function likeTotalCounter() {
             }
         }]);
 
-        if (result  && result[0].likesTotal !== undefined) {
-            return result[0].likesTotal;
-        } else {
-            return 0;
-        }
+        return result?.[0]?.likesTotal || 0;
+        
     } catch (error) {
         return 0;
     }
-}
+}   
 
 module.exports = async () =>{
     const result = await Promise.all([
