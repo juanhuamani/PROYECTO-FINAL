@@ -44,7 +44,7 @@ ctrl.create = async (req , res)=>{
                     description : req.body.description ,
     
                 })
-                const imageSaved = await newImg.save();
+                await newImg.save();
                 res.redirect('/images/' + imgUrl)
             }
             else{
