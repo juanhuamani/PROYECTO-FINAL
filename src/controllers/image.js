@@ -15,12 +15,18 @@ ctrl.index =async (req , res)=>{
             .then(result => resolve(result))
             .catch(error => reject(error));
     });
-    
+
     if(image){
         image.views += 1 ;
         viewModel.image = image;
         await image.save();
-        const comments = await Comment.find({image_id: image._id});
+        
+        const comments = await new Promise((resolve, reject) => {
+            Comment.find({ image_id: image._id })
+                .then(result => resolve(result))
+                .catch(error => reject(error));
+        });
+
         viewModel.comments = comments;
         viewModel = await sidebar(viewModel)
         res.render('image', viewModel);
