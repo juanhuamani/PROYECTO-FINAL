@@ -10,7 +10,12 @@ const ctrl = {};
 
 ctrl.index =async (req , res)=>{
     let viewModel = {image:{} , comments:{}};
-    const image = await Image.findOne({filename : {$regex : req.params.image_id}});
+    const image = await new Promise((resolve, reject) => {
+        Image.findOne({ filename: { $regex: req.params.image_id } })
+            .then(result => resolve(result))
+            .catch(error => reject(error));
+    });
+    
     if(image){
         image.views += 1 ;
         viewModel.image = image;
