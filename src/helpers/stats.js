@@ -47,7 +47,7 @@ async function likeTotalCounter() {
 }   
 
 module.exports = async () =>{
-    const result = await Promise.all([
+    const result = await Promise.all([  
         imagesCounter() ,
         commentsCounter() ,
         imagesTotalViewsCounter() ,
