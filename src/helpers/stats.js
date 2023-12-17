@@ -20,11 +20,8 @@ async function imagesTotalViewsCounter() {
             }
         ]);
 
-        if (result  && result[0].viewsTotal !== undefined) {
-            return result[0].viewsTotal;
-        } else {
-            return 0;
-        }
+        return result?.[0]?.viewsTotal || 0;
+
     } catch (error) {
         return 0; 
     }
