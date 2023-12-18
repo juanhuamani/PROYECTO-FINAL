@@ -1,15 +1,16 @@
-const helpers = {}
+const crypto = require("crypto");
 
-helpers.randomNumber =()=>{
-    const possible = 'abcdefghijklmnopqrstuvwxyz0123456789'
-    let randomNumber = 0 ;
+const helpers = {};
 
-    for(let i= 0 ; i<6 ; i++){
-        randomNumber += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
+helpers.randomNumber = () => {
+  const possible = "abcdefghijklmnopqrstuvwxyz0123456789";
+  let randomNumber = 0;
 
-    return randomNumber
+  for (let i = 0; i < 6; i++) {
+    randomNumber += possible.charAt(crypto.randomInt(0, possible.length));
+  }
 
-}
+  return randomNumber;
+};
 
-module.exports= helpers
+module.exports = helpers;
