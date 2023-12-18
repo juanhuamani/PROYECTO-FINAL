@@ -1,3 +1,5 @@
+const crypto = require("crypto");
+
 const helpers = {};
 
 helpers.randomNumber = () => {
@@ -5,9 +7,7 @@ helpers.randomNumber = () => {
   let randomNumber = 0;
 
   for (let i = 0; i < 6; i++) {
-    randomNumber += possible.charAt(
-      Math.floor(Math.random() * possible.length)
-    );
+    randomNumber += possible.charAt(crypto.randomInt(0, possible.length));
   }
 
   return randomNumber;
