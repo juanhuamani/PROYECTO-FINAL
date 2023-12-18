@@ -26,13 +26,14 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnar'
+                        bat 'sonar-scanner.bat -D"sonar.projectKey=ImgShareFinal" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_f3b00a5ab7b9e41a5fae84328c0509fa1f9b4549"
+'
                     }
                 }
             }
         }
 
-
+       /* 
        stage('Construir imagen Docker') {
             steps {
                 script {
@@ -47,6 +48,14 @@ pipeline {
                 script {
                     if (isUnix()) {sh 'docker-compose up -d'}
                     else {bat 'docker-compose up -d'}
+                }
+            }
+        }*/
+        stage('Ejecutar proyecto'){
+            steps{
+                script{
+                    if (isUnix()) {sh 'npm run dev'}
+                    else {bat 'npm run dev'}
                 }
             }
         }
