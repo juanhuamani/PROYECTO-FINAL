@@ -28,7 +28,7 @@ async function imagesTotalViewsCounter() {
     } catch (error) {
         return 0; 
     }
-}
+} 
 
 async function likeTotalCounter() {
     try {
