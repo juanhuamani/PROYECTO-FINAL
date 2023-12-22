@@ -96,7 +96,7 @@ ctrl.remove = async (req, res) => {
   });
   if (image) {
     await fs.unlink(path.resolve("./src/public/upload/" + image.filename));
-    await Comment.deleteOne({ image_id: image._id });
+    await Comment.deleteMany({ image_id: image._id });
     await image.deleteOne();
     res.json(true);
   }
