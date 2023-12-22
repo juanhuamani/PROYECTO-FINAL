@@ -44,7 +44,21 @@ pipeline {
             }
         }
 
-       stage('Construir imagen Docker') {
+        stage('Run JMeter tests') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'jmeter -n -t ./tests/jmeter/test.jmx -l result.csv'
+                        perfReport 'result.csv'
+                    } else {
+                        bat 'jmeter -n -t ./tests/jmeter/test.jmx -l result.csv'
+                        perfReport 'result.csv'
+                    }
+                }
+            }
+        }
+
+        stage('Construir imagen Docker') {
             steps {
                 script {
                     if (isUnix()) {sh 'docker build -t proyecto-final .'}
