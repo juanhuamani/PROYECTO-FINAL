@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'sonar-scanner.bat -D"sonar.projectKey=ImgShareFinal" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" '
+                        bat 'sonar-scanner -D sonar.projectKey=ImgShareFinal'
                     }
                 }
             }
