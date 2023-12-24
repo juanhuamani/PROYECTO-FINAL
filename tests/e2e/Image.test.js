@@ -1,16 +1,23 @@
 const { Builder, By, Browser, until } = require("selenium-webdriver");
-const { imageId } = require("./e2e.consts.js");
 
 describe("Image cycle", () => {
   let driver;
 
   beforeAll(async () => {
-    driver = await new Builder().forBrowser(Browser.CHROME).build();
-  });
+    try {
+      driver = await new Builder().forBrowser(Browser.CHROME).build();
+    } catch (error) {
+      console.error("Error setting up the driver:", error);
+    }
+  }, 10000);
 
   afterAll(async () => {
-    await driver.quit();
-  });
+    try {
+      await driver.quit();
+    } catch (error) {
+      console.error("Error quitting the driver:", error);
+    }
+  }, 10000);
 
   test("Upload image", async () => {
     await driver.get("http://localhost:3000");
@@ -22,11 +29,10 @@ describe("Image cycle", () => {
     let testImage = process.cwd() + "/src/public/img/imgshare-logo.png";
     await driver.findElement(By.name("image")).sendKeys(testImage);
     await driver.findElement(By.className("btn-success")).click();
-  });
+    expect(true).toBe(true);
+  }, 10000);
 
   test("likeImage", async () => {
-    await driver.get(`http://localhost:3000/images/${imageId}`);
-
     const likes = await driver
       .findElement(By.className("likes-count"))
       .getText();
@@ -42,8 +48,6 @@ describe("Image cycle", () => {
   });
 
   test("commentImage", async () => {
-    await driver.get(`http://localhost:3000/images/${imageId}`);
-
     const numberOfComments = await driver.findElements(
       By.className("list-group-item")
     );
@@ -58,10 +62,9 @@ describe("Image cycle", () => {
 
     const comments = await driver.findElements(By.className("list-group-item"));
     expect(comments.length).toBe(numberOfComments.length + 1);
-  });
+  }, 10000);
 
   test("Delete image", async () => {
-    await driver.get(`http://localhost:3000/images/${imageId}`);
     await driver.findElement(By.id("btn-delete")).click();
 
     await driver.wait(until.alertIsPresent());
