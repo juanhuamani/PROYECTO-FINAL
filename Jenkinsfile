@@ -26,14 +26,39 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'sonar-scanner.bat -D"sonar.projectKey=ImgShareFinal" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_f3b00a5ab7b9e41a5fae84328c0509fa1f9b4549"'
+                        bat 'sonar-scanner -D sonar.projectKey=ImgShareFinal'
                     }
                 }
             }
         }
 
+        stage('OWASP Dependency-Check Vulnerabilities') {
+            steps {
+                dependencyCheck additionalArguments: ''' 
+                            -o './'
+                            -s './'
+                            -f 'ALL' 
+                            --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+                
+                dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+            }
+        }
 
-       stage('Construir imagen Docker') {
+        stage('Run JMeter tests') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'jmeter -n -t ./tests/jmeter/test.jmx -l result.csv'
+                        perfReport 'result.csv'
+                    } else {
+                        bat 'jmeter -n -t ./tests/jmeter/test.jmx -l result.csv'
+                        perfReport 'result.csv'
+                    }
+                }
+            }
+        }
+
+        stage('Construir imagen Docker') {
             steps {
                 script {
                     if (isUnix()) {sh 'docker build -t proyecto-final .'}
