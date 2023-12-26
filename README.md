@@ -1,6 +1,6 @@
 # PROYECTO FINAL
 
-Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y más.
+El proyecto es una aplicación web destinada a la compartición de imágenes, comentarios y otros contenidos relacionados. Esta aplicación proporciona una plataforma para que los usuarios carguen imágenes, dejen comentarios y participen en interacciones sociales en torno a esas imágenes.
 
 
 # Variables de entorno
