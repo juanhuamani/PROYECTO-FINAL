@@ -5,8 +5,8 @@ El proyecto es una aplicación web destinada a la compartición de imágenes, co
 
 # Variables de entorno
 
-- `MONGODB_URI`, the mongodb database uri
-- `PORT` the http server port. By default is `3000`
+- `MONGODB_URI`, the mongodb database uri.
+- `PORT` the http server port. By default is `3000`.
 
 
 
