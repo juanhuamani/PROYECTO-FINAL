@@ -1,6 +1,28 @@
-# PROYECTO FINAL
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
 
-Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y más.
+<br />
+<div align="center">
+  <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="src/public/img/imgshare-logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">PROYECTO FINAL ING. SOFTWARE II</h3>
+
+  <p align="center">
+    Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y más.
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div>
+
 
 
 # Variables de entorno
