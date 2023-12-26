@@ -101,5 +101,36 @@ ctrl.remove = async (req, res) => {
     res.json(true);
   }
 };
+ctrl.index = async (req, res) => {
+  try {
+    let viewModel = { image: {}, comments: {} };
+    const image = await Image.findOne({
+      filename: { $regex: req.params.image_id },
+    });
+
+    if (image) {
+      image.views += 1;
+      viewModel.image = image;
+      await image.save();
+
+      const comments = await Comment.find({ image_id: image._id });
+      viewModel.comments = comments;
+
+      // Generar enlace compartido
+      const host = req.get("host");
+      const protocol = req.protocol;
+      viewModel.sharedLink = `${protocol}://${host}/images/${image.uniqueId}`;
+
+      viewModel = await sidebar(viewModel);
+      res.render("image", viewModel);
+    } else {
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.error("Error en la función index:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 
 module.exports = ctrl;
