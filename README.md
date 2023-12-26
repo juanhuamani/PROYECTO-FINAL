@@ -1,6 +1,6 @@
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 
+[![Forks][forks-shield]][forks-url]
 <br />
 <div align="center">
   <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
