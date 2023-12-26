@@ -1,12 +1,48 @@
 # PROYECTO FINAL
 
-Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y más.
+El proyecto es una aplicación web destinada a la compartición de imágenes, comentarios y otros contenidos relacionados. Esta aplicación proporciona una plataforma para que los usuarios carguen imágenes, dejen comentarios y participen en interacciones sociales en torno a esas imágenes.
 
+# Objetivo del Proyecto
+El objetivo principal de este proyecto es crear una plataforma interactiva y amigable para que los usuarios compartan imágenes y participen en conversaciones significativas a través de comentarios. La aplicación debe permitir a los usuarios registrarse, cargar imágenes, dejar comentarios en las imágenes de otros usuarios y expresar interacción social a través de funciones adicionales, como la opción de "me gusta" o compartir.
+
+## Características Específicas
+
+### Registro de Usuarios
+
+- Implementar un sistema de registro de usuarios con autenticación segura.
+- Proporcionar perfiles de usuario que muestren las imágenes cargadas y los comentarios dejados por ese usuario.
+
+### Carga de Imágenes
+
+- Permitir a los usuarios cargar imágenes con títulos descriptivos.
+- Validar y procesar las imágenes cargadas para garantizar la integridad y seguridad del sistema.
+
+### Comentarios
+
+- Habilitar la función de comentarios en las imágenes, permitiendo a los usuarios dejar sus opiniones y respuestas.
+- Incluir opciones de edición y eliminación de comentarios para los usuarios que los han dejado.
+
+### Interacción Social
+
+- Implementar la opción de "me gusta" en las imágenes para que los usuarios puedan expresar su aprecio.
+- Facilitar la opción de compartir imágenes en otras plataformas sociales.
+
+### Diseño Responsivo
+
+- Asegurarse de que la aplicación sea accesible y tenga un diseño responsivo para adaptarse a diferentes dispositivos y tamaños de pantalla.
+
+### Seguridad
+
+- Implementar medidas de seguridad para proteger la privacidad de los usuarios y prevenir posibles vulnerabilidades.
+
+### Despliegue con Docker
+
+- Garantizar que la aplicación se pueda implementar fácilmente utilizando Docker para simplificar el proceso de despliegue.
 
 # Variables de entorno
 
-- `MONGODB_URI`, the mongodb database uri
-- `PORT` the http server port. By default is `3000`
+- `MONGODB_URI`, the mongodb database uri.
+- `PORT` the http server port. By default is `3000`.
 
 
 
