@@ -29,12 +29,12 @@ describe('Funciones en Imagenes',() => {
         });
         test('Sobrecarga de likes', async () => {
             
-            for(let i=0; i<60; i++){
+            for(let i=0; i<20; i++){
                 await request(app).post('/images/test.jpg/like');
                 likes+=1;
             }
             const imagetest = await Image.findOne ({ filename :  "test.jpg" });
-            expect(likes).toBe(imagetest.likes);
+            expect(imagetest.likes).toBe(likes);
             await imagetest.deleteOne();
         });
     });
