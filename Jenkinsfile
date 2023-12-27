@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "$PATH:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:c:/Users/JUAN/Downloads/apache-jmeter-5.6.2/bin"
+        PATH = "$PATH:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:/c/Users/JUAN/Downloads/apache-jmeter-5.6.2/bin"
     }
 
     stages {
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnarQube'
+                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnar'
                     }
                 }
             }
@@ -57,7 +57,6 @@ pipeline {
                     else {bat 'docker-compose up -d'}
                 }
             }
-
         }
 
          stage('JMeter tests') {
