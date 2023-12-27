@@ -13,12 +13,21 @@
   <p align="center">
     Nuestro proyecto es una aplicación web para compartir imágenes, comentarios y más.  Esta aplicación proporciona una plataforma para que los usuarios carguen imágenes, dejen comentarios y participen en interacciones sociales en torno a esas imágenes.
     <br />
+    <a href="https://www.canva.com/design/DAF4GPKP4x0/q1nQ4JNAXnmcMoyasE0D4Q/edit?utm_content=DAF4GPKP4x0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"><strong>Diapositivas»    </strong></a>
+    <a href="https://trello.com/invite/b/bnAgQJZB/ATTIa2cb4bf74f8918d345b818378c514375320D2B47/proyecto-final-is-ii"><strong>Trello»</strong></a>
+    <br />
   </p>
 </div>
 
 # Objetivo del Proyecto
 El objetivo principal de este proyecto es crear una plataforma interactiva y amigable para que los usuarios compartan imágenes y participen en conversaciones significativas a través de comentarios. La aplicación debe permitir a los usuarios registrarse, cargar imágenes, dejar comentarios en las imágenes de otros usuarios y expresar interacción social a través de funciones adicionales, como la opción de "me gusta" o compartir.
 
+## CONSTRUIDO CON:
+Se empleo los siguientes frameworks y dependencias:
+* [![Node][Node.js]][Node-url]
+* [![Handlebars][Handlebars]][Handlebars-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![Express][Express]][Express-url]
 ## Características Específicas
 
 ### Registro de Usuarios
@@ -117,20 +126,11 @@ docker-compose up
 [forks-url]: https://github.com/juanhuamani/PROYECTO-FINAL/network/members
 
 
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
+[Node.js]: https://img.shields.io/badge/node.js-287236?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Node-url]: https://nodejs.org/en/
+[Handlebars]: https://img.shields.io/badge/Handlebars-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[Handlebars-url]: https://handlebarsjs.com/
+[Express]: https://img.shields.io/badge/Express.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Express-url]: https://expressjs.com/
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
