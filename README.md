@@ -91,7 +91,24 @@ El objetivo principal de este proyecto es crear una plataforma interactiva y ami
 
 - **`sonar-scanner.properties` - Configuración de SonarScanner:**
   - Archivo que puede contener configuraciones específicas para SonarScanner, que se utiliza para análisis estático del código.
+    
+# Pasos Automatizados
 
+- **Clonación del Proyecto:**
+   - Jenkins clona automáticamente el repositorio antes de cada despliegue.
+
+- **Construcción:**
+   - La construcción del proyecto se realiza automáticamente utilizando Jenkins.
+
+- **Pruebas (JTest, Selenium):**
+   - Ejecución de pruebas automatizadas, incluyendo JTest y pruebas Selenium.
+
+- **Análisis Estático con SonarQube:**
+   - Realización de un análisis estático del código mediante SonarQube.
+
+- **Despliegue con Docker:**
+   - Despliegue del proyecto utilizando Docker.
+     
 # Instalación
 
 ## Instalación rápida
