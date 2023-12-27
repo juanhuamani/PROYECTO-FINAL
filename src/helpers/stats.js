@@ -1,50 +1,48 @@
 const { Comment, Image } = require('../models');
-const images = require('./images');
+
+async function countDocuments(model) {
+    try {
+        return await model.countDocuments();
+    } catch (error) {
+        return 0;
+    }
+}
+
+async function aggregateTotal(model, field) {
+    try {
+        const result = await model.aggregate([
+            {
+                $group: {
+                    _id: '1',
+                    [`${field}Total`]: { $sum: `$${field}` }
+                }
+            }
+        ]);
+
+        return result?.[0]?.[`${field}Total`] || 0;
+    } catch (error) {
+        return 0;
+    }
+}
 
 async function imagesCounter() {
-    return await Image.countDocuments();
+    return await countDocuments(Image);
 }
 
 async function commentsCounter() {
-    return await Comment.countDocuments();
+    return await countDocuments(Comment);
 }
 
 async function imagesTotalViewsCounter() {
-    try {
-        const result = await Image.aggregate([
-            {
-                $group: {
-                    _id: '1',
-                    viewsTotal: { $sum: '$views' }
-                }
-            }
-        ]);
-
-        return result?.[0]?.viewsTotal || 0;
-    } catch (error) {
-        return 0;
-    }
+    return await aggregateTotal(Image, 'views');
 }
 
 async function likeTotalCounter() {
-    try {
-        const result = await Image.aggregate([
-            {
-                $group: {
-                    _id: '1',
-                    likesTotal: { $sum: '$likes' }
-                }
-            }
-        ]);
-
-        return result?.[0]?.likesTotal || 0;
-    } catch (error) {
-        return 0;
-    }
+    return await aggregateTotal(Image, 'likes');
 }
 
 module.exports = async () => {
-    const result = await Promise.all([
+    const [imagesCount, commentsCount, totalViews, totalLikes] = await Promise.all([
         imagesCounter(),
         commentsCounter(),
         imagesTotalViewsCounter(),
@@ -52,9 +50,10 @@ module.exports = async () => {
     ]);
 
     return {
-        images: result[0],
-        comments: result[1],
-        views: result[2],
-        likes: result[3]
+        images: imagesCount,
+        comments: commentsCount,
+        views: totalViews,
+        likes: totalLikes
     };
 };
+

@@ -1,48 +1,48 @@
-const path = require("path");
-const exphbs = require("express-handlebars");
+const path = require('path')
+const exphbs = require('express-handlebars');
 
-const morgan = require("morgan");
-const multer = require("multer");
-const express = require("express");
-const routes = require("../routes/index");
-const errorHandler = require("errorhandler");
+const morgan = require('morgan')
+const multer = require('multer')
+const express = require('express')
+const routes = require('../routes/index');
+const errorHandler = require('errorhandler');
 
-module.exports = (app) => {
-  app.set("port", process.env.PORT || 3000);
-  app.set("views", path.join(__dirname, "../views"));
-  const hbs = exphbs.create({
-    defaultLayout: "main",
-    partialsDir: path.join(app.get("views"), "partials"),
-    layoutsDir: path.join(app.get("views"), "layouts"),
-    extname: ".hbs",
-    helpers: require("./helpers"),
-    runtimeOptions: {
-      allowProtoPropertiesByDefault: true,
-      allowProtoMethodsByDefault: true,
-    },
-  });
+module.exports = (app) =>{
 
-  app.engine(".hbs", hbs.engine);
+    app.set('port' , process.env.PORT || 3000);
+    app.set('views' ,path.join(__dirname , '../views') );
+    const hbs = exphbs.create({
+        defaultLayout: 'main',
+        partialsDir: path.join(app.get('views'), 'partials'),
+        layoutsDir: path.join(app.get('views'), 'layouts'),
+        extname: '.hbs',
+        helpers: require('./helpers'),
+        runtimeOptions: {
+            allowProtoPropertiesByDefault: true,
+            allowProtoMethodsByDefault: true,
+        },
+    });
 
-  app.set("view engine", ".hbs");
+    app.engine('.hbs', hbs.engine);
 
-  app.use(morgan("dev"));
+    app.set('view engine', '.hbs');
 
-  app.use(
-    multer({
-      dest: path.join(__dirname, "../public/upload/temp"),
-      limits: { fileSize: 1000000 },
-    }).single("image")
-  );
+    app.use(morgan('dev'));
 
-  app.use(express.urlencoded({ extended: false }));
-  app.use(express.json());
+    app.use(multer({
+        dest: path.join(__dirname, '../public/upload/temp')
+    }).single('image'));
 
-  routes(app);
+    app.use(express.urlencoded({extended : false}))
+    app.use(express.json())
 
-  app.use("/public", express.static(path.join(__dirname, "../public")));
+    routes(app);
 
-  if ("development" === app.get("env")) app.use(errorHandler);
+    app.use('/public', express.static(path.join(__dirname, '../public')));
 
-  return app;
-};
+
+    if('development' ===  app.get('env'))
+        app.use(errorHandler);
+    
+    return app;
+}
