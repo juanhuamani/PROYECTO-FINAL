@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = "$PATH:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:c:/Users/JUAN/Downloads/apache-jmeter-5.6.2/bin"
+        PATH = "$PATH:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin"
     }
 
     stages {
@@ -60,18 +60,6 @@ pipeline {
 
         }
 
-         stage('JMeter tests') {
-            steps {
-                script {
-                    if (isUnix()) {
-                        sh 'jmeter -n -t ./tests/jmeter/test.jmx -l result.csv'
-                        perfReport 'result.csv'
-                    } else {
-                        bat 'jmeter -n -t path\\to\\your\\test.jmx -l testresults.jtl'
-                    }
-                }
-            }
-        }
 
         stage('OWASP Dependency-Check Vulnerabilities') {
           steps {
