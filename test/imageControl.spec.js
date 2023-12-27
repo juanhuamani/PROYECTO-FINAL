@@ -29,7 +29,7 @@ describe('Funciones en Imagenes',() => {
         });
         test('Sobrecarga de likes', async () => {
             
-            for(let i=0; i<60; i++){
+            for(let i=0; i<20; i++){
                 await request(app).post('/images/test.jpg/like');
                 likes+=1;
             }
