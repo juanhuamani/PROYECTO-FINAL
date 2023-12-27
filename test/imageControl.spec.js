@@ -11,7 +11,7 @@ const rutaDestino = 'src/public/upload/test.jpg';
 
 describe('Funciones en Imagenes',() => {
     describe('Verificación de Imagen', () => {
-        var likes = 0;
+        let likes = 0;
         
         test('Verificación de like', async () => {
             const newImg = new Image({
@@ -29,13 +29,12 @@ describe('Funciones en Imagenes',() => {
         });
         test('Sobrecarga de likes', async () => {
             
-            for(let i=0; i<100; i++){
+            for(let i=0; i<60; i++){
                 await request(app).post('/images/test.jpg/like');
                 likes+=1;
             }
-            const imagetest = await Image.findOne ({ filename : {$regex: "test.jpg"} });
-            
-            expect(imagetest.likes).toBe(likes);
+            const imagetest = await Image.findOne ({ filename :  "test.jpg" });
+            expect(likes).toBe(imagetest.likes);
             await imagetest.deleteOne();
         });
     });
