@@ -65,6 +65,9 @@ ctrl.like = async (req, res) => {
   const image = await Image.findOne({
     filename: { $regex: req.params.image_id },
   });
+  //console.log(image.filename);
+  //console.log(image.filename.$regex);
+
   if (image) {
     image.likes += 1;
     await image.save();
