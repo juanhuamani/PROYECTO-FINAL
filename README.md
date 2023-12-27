@@ -136,7 +136,64 @@ Se empleo los siguientes frameworks y dependencias:
 
 Para integrar SonarQube en Jenkins, necesitas configurar el análisis del código con el servidor SonarQube. Aquí el codigo para configurar el bloque de análisis de SonarQube en el pipeline de Jenkins:
 
+
+```
+stage('Analisis SonarQube') {
+            steps {
+                script {
+                    withSonarQubeEnv('SonnarScannerQube') {
+                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnar'
+                    }
+                }
+            }
+        }
+```
+
 # Pruebas
+
+## Pruebas Unitarias y de Integración con JTest y Supertest
+Hemos implementado pruebas exhaustivas utilizando JTest y Supertest para asegurar la calidad y robustez de nuestro código. Estas pruebas abarcan escenarios clave que incluyen operaciones funcionales y casos de uso específicos de nuestra aplicación.
+
+### Escenarios de Prueba
+
+- **Gets Funcionales - Casos de Prueba:**
+  - Verificamos la funcionalidad de los endpoints GET mediante casos de prueba diseñados para garantizar el acceso correcto a la URL principal y la recuperación de datos esencial.
+- **Comprobar Acceso a URL Principal:**
+  - Confirmamos que la URL principal de la aplicación es accesible y responde correctamente.
+- **Subida y Eliminación de Imágenes y Posts:**
+  - Evaluamos la capacidad de nuestro sistema para manejar la carga y eliminación de imágenes y posts, verificando la integridad y consistencia de los datos.
+- **Funciones en Imágenes - Casos de Prueba:**
+  - Realizamos pruebas específicas para las funciones relacionadas con las imágenes, incluyendo la creación de imágenes y la aplicación de likes.
+- **Creación de Imagen y Like:**
+  - Verificamos la creación exitosa de una imagen y la capacidad del sistema para gestionar la funcionalidad de "me gusta" asociada.
+- **Sobrecarga de Likes Soportada por el Servidor:**
+  - Probamos el rendimiento del servidor al simular una sobrecarga de "me gusta", asegurándonos de que la aplicación pueda manejar la carga de manera eficiente.
+### Archivos de Pruebas
+
+Los casos de prueba están implementados en los siguientes archivos:
+
+- **test/index.spec.js:**
+  -  Contiene pruebas relacionadas con el acceso a la URL principal y la funcionalidad de los endpoints GET.
+- **test/imageControl.spec.js:**
+  -  Incluye pruebas específicas para las funciones de control de imágenes, como la creación y eliminación, así como la gestión de likes.
+     
+### Integración en Jenkins
+Hemos integrado estas pruebas en nuestro pipeline de Jenkins para garantizar una evaluación continua de la funcionalidad y rendimiento de la aplicación.
+
+- **Configuración en Jenkins**
+  - Dentro del pipeline de Jenkins, hemos agregado una etapa específica para la ejecución de las pruebas utilizando el siguiente script:
+
+```
+stage('Ejecutar tests') {
+        steps {
+            script {
+                if (isUnix()) {sh 'npm test'}
+                else {bat 'npm test'}
+            }
+        }
+    }
+```
+   
 ## Pueba de Rendimiento Jmeter
 
 Para llevar a cabo las pruebas de rendimiento, se configuró JMeter para simular 100 usuarios virtuales, cada uno realizando las siguientes acciones:
@@ -150,6 +207,22 @@ Para llevar a cabo las pruebas de rendimiento, se configuró JMeter para simular
 
 ### Configuración del Job en Jenkins:
 Dentro del pipeline de Jenkins, hemos agregado una etapa específica para las pruebas de rendimiento utilizando un script que ejecuta las pruebas de JMeter.
+
+```
+tage('JMeter tests') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'jmeter -n -t ./tests/jmeter/test.jmx -l result.csv'
+                        perfReport 'result.csv'
+                    } else {
+                        bat 'jmeter -n -t path\\to\\your\\test.jmx -l testresults.jtl'
+                    }
+                }
+            }
+        }
+```
+
 
 # Instalación
 
@@ -167,6 +240,22 @@ npm run dev
 ```
 docker-compose up
 ```
+# Links 
+
+## Link de Trello
+
+```
+https://trello.com/invite/b/bnAgQJZB/ATTIa2cb4bf74f8918d345b818378c514375320D2B47/proyecto-final-is-ii
+```
+
+## Link de las Diapositivas
+
+```
+https://www.canva.com/design/DAF4GPKP4x0/q1nQ4JNAXnmcMoyasE0D4Q/edit?utm_content=DAF4GPKP4x0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+```
+
+
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
