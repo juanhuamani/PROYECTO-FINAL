@@ -112,7 +112,22 @@ El objetivo principal de este proyecto es crear una plataforma interactiva y ami
 - **Despliegue con Docker:**
    - Se implementa la automatización del despliegue utilizando Docker.
    - El Dockerfile y docker-compose.yml están configurados para asegurar la escalabilidad y la gestión de dependencias.
-     
+
+# Analisis Estatico
+
+## SonarQube
+
+  Se emplea SonarQube para una evaluación exhaustiva de la calidad del código, destacando áreas de mejora según los principios SOLID y pautas de "clean code".
+- **Métricas Adicionales:**
+  - Complejidad Ciclomática: Se evalúa la complejidad del código para identificar posibles puntos de refactorización.
+- **Acoplamiento entre Clases:**
+  - Se analiza la dependencia entre clases para garantizar un diseño modular y desacoplado.
+- **Duplicación de Código:**
+  - Se identifican fragmentos duplicados para promover la reutilización y mantener un código más limpio.
+
+Para integrar SonarQube en Jenkins, necesitas configurar el análisis del código con el servidor SonarQube. Aquí el codigo para configurar el bloque de análisis de SonarQube en el pipeline de Jenkins:
+
+
 # Instalación
 
 ## Instalación rápida
