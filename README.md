@@ -100,7 +100,28 @@ Se empleo los siguientes frameworks y dependencias:
 
 - **`sonar-scanner.properties` - Configuración de SonarScanner:**
   - Archivo que puede contener configuraciones específicas para SonarScanner, que se utiliza para análisis estático del código.
+    
+# Pasos Automatizados
 
+- **Clonación del Proyecto:**
+   - Jenkins clona automáticamente el repositorio antes de cada despliegue.
+
+- **Construcción:**
+   - La construcción del proyecto se realiza automáticamente utilizando Jenkins.
+
+- **Pruebas (JTest, Selenium):**
+   - Se ejecutan pruebas automatizadas utilizando JTest y Selenium.
+   - Escenarios de prueba incluyen funcionalidades como acceso a URL principal, subida/eliminación de imágenes, creación de imágenes y likes.
+
+- **Análisis Estático con SonarQube:**
+   - Se utiliza el plugin de SonarQube en Jenkins para analizar el código.
+   - Configuración de SonarQube en Jenkins con credenciales específicas.
+   - Integración del análisis en el pipeline, declarando el nombre del proyecto.
+
+- **Despliegue con Docker:**
+   - Se implementa la automatización del despliegue utilizando Docker.
+   - El Dockerfile y docker-compose.yml están configurados para asegurar la escalabilidad y la gestión de dependencias.
+     
 # Instalación
 
 ## Instalación rápida
