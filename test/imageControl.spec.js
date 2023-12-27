@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-extra');
 const request = require('supertest');
 const express = require('express');
 const { Image, Comment } = require('../src/models/index');
@@ -9,53 +9,34 @@ require("../src/database");
 const rutaOrigen = 'test/test.jpg';
 const rutaDestino = 'src/public/upload/test.jpg';
 
-const contenidoImagen = fs.readFileSync(rutaOrigen);
-fs.writeFileSync(rutaDestino, contenidoImagen);
-/*    
-const newImage = new Image({
-    title: "Test",
-    filename: "test.jpg",
-    description: "Test"
-});*/
 describe('Funciones en Imagenes',() => {
-    //newImage.save();
-    const imagetest = Image.findOne({
-        filename: "test.jpg" ,
-      });
-    console.log(imagetest)
     describe('Verificación de Imagen', () => {
-        var likes = imagetest.likes;
-        console.log(likes)
-
+        let likes = 0;
+        
         test('Verificación de like', async () => {
+            const newImg = new Image({
+                title: "Test",
+                filename: "test.jpg",
+                description: "test descripcion",
+            });
+            await newImg.save();
+            const contenidoImagen = fs.readFileSync(rutaOrigen);
+            fs.writeFileSync(rutaDestino, contenidoImagen);
             const response = await request(app).post('/images/test.jpg/like');
-            likes+=1;
-            //console.log(response);
+            const imagetest = await Image.findOne ({ filename : {$regex: "test.jpg"} });
+            likes=imagetest.likes;
             expect(response.statusCode).toBe(200);
-            console.log(likes);
         });
         test('Sobrecarga de likes', async () => {
-            for(let i=0; i<100; i++){
+            
+            for(let i=0; i<60; i++){
                 await request(app).post('/images/test.jpg/like');
                 likes+=1;
             }
-            expect(imagetest.likes).toBe(likes);
+            const imagetest = await Image.findOne ({ filename :  "test.jpg" });
+            expect(likes).toBe(imagetest.likes);
+            await imagetest.deleteOne();
         });
     });
-    /*describe('Verificación de Comentario', () => {
-        let commentsNumber = image.comments;
-        test('Verificación de comentario', async () => {
-            const response = await request(app).post('/images/test/comment');
-            commentsNumber++;
-            expect(response.statusCode).toBe(200);
-        });
-        test('Sobrecarga de comentarios', async () => {
-            for(let i=0; i<100; i++){
-                request(app).post('/images/test/comment');
-                commentsNumber++;
-            }
-            expect(image.comments).toBe(commentsNumber);
-        });
-    });*/
-    imagetest.deleteOne();
+
 });

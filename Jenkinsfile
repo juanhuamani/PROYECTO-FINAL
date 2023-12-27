@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonnarScannerQube') {
-                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnar'
+                        bat 'sonar-scanner -Dsonar.projectKey=ProyectoFinalSonnarQube'
                     }
                 }
             }
@@ -57,14 +57,7 @@ pipeline {
                     else {bat 'docker-compose up -d'}
                 }
             }
-        }
-        stage('Ejecutar proyecto'){
-            steps{
-                script{
-                    if (isUnix()) {sh 'npm run dev'}
-                    else {bat 'npm run dev'}
-                }
-            }
+
         }
 
          stage('JMeter tests') {

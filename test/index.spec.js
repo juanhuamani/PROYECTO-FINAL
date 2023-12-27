@@ -33,8 +33,11 @@ describe('Creación, verificación y eliminación de Imagenes', () => {
         expect(response.statusCode).toBe(200);
     });
     
-    test('Eliminación de Imagen', async () => {
+    test('Eliminación de Imagen', async() => {
         const response= await request(app).delete('/images/test');
+        const imagetest = await Image.findOne ({ filename : {$regex: "test.jpg"} });
+        //expect(likes).toBe(imagetest.likes);
+        console.log(imagetest);
         expect(response.status).toBe(200);
     }); 
 });
