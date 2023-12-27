@@ -34,7 +34,7 @@ describe('Funciones en Imagenes',() => {
                 likes+=1;
             }
             const imagetest = await Image.findOne ({ filename :  "test.jpg" });
-            expect(likes).toBe(imagetest.likes);
+            expect(imagetest.likes).toBe(likes);
             await imagetest.deleteOne();
         });
     });
