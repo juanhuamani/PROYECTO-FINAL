@@ -136,6 +136,20 @@ Se empleo los siguientes frameworks y dependencias:
 
 Para integrar SonarQube en Jenkins, necesitas configurar el análisis del código con el servidor SonarQube. Aquí el codigo para configurar el bloque de análisis de SonarQube en el pipeline de Jenkins:
 
+# Pruebas
+## Pueba de Rendimiento Jmeter
+
+Para llevar a cabo las pruebas de rendimiento, se configuró JMeter para simular 100 usuarios virtuales, cada uno realizando las siguientes acciones:
+
+- **Obtener Imágenes:**
+  - Se evalúa el tiempo de respuesta al acceder y cargar la lista de imágenes disponibles en la aplicación.
+- **Dar Me Gusta a una Imagen:**
+  - Se simula la interacción de usuarios que dan "me gusta" a una imagen específica, evaluando la eficiencia en tiempo de respuesta de esta acción.
+- **Comentar una Imagen:**
+  - Se verifica el rendimiento al realizar la acción de comentar en una imagen, simulando la interacción típica de usuarios que participan activamente en la plataforma.
+
+### Configuración del Job en Jenkins:
+Dentro del pipeline de Jenkins, hemos agregado una etapa específica para las pruebas de rendimiento utilizando un script que ejecuta las pruebas de JMeter.
 
 # Instalación
 
