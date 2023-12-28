@@ -311,7 +311,9 @@ Para fortalecer la seguridad del proyecto, hemos integrado OWASP Dependency Chec
 - **Instalación de OWASP Dependency Check en el Servidor de Jenkins:**
   - Asegúrate de que OWASP Dependency Check esté instalado en el servidor de Jenkins. Puedes seguir la documentación oficial para realizar la instalación: OWASP Dependency Check Installation.
  
-### Pruebas Owasp
+### Resultado Owasp
+Tras la ejecución, el informe de vulnerabilidades generado está disponible en la salida del build de Jenkins, proporcionando una visión instantánea sobre posibles riesgos y permitiéndonos tomar medidas correctivas de manera proactiva. 
+
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/Owasp.jpeg" alt="Owasp" >
   </a>
@@ -332,7 +334,10 @@ stage('OWASP Dependency-Check Vulnerabilities') {
           }
         }
 ```
-### Pruebas SonarQube
+### Owasp en Jenkins
+Integramos OWASP Dependency Check en nuestro pipeline de Jenkins para realizar análisis continuo de seguridad en las dependencias del proyecto.
+
+
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/OwaspJenkins.jpeg" alt="OwaspJenkins" >
   </a>
@@ -350,6 +355,11 @@ El archivo docker-compose.yml se encarga de dos servicios fundamentales: web y m
 - **Servicio MongoDB:**
   - Configuramos un servicio de MongoDB para proporcionar la base de datos necesaria para el correcto funcionamiento de nuestra aplicación.
 
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/docker-compose.jpeg" alt="docker-compose" >
+  </a>
+
+
 ### FRAGMENTO DEL DOCKERFILE:
 
 - Basado en la imagen oficial de Node.js versión 20.9.
@@ -359,6 +369,11 @@ El archivo docker-compose.yml se encarga de dos servicios fundamentales: web y m
 - Copia el resto de los archivos al contenedor.
 - Expone el puerto 3000.
 - Configura el comando de inicio para ejecutar el script dev definido en package.json.
+
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/ Dockerfile.jpeg" alt="Dockerfile" >
+  </a>
+
 
 ### Integración en Jenkins
 Este archivo docker-compose.yml también ha sido integrado en nuestro pipeline de Jenkins para facilitar la implementación y el despliegue automáticos de nuestros servicios en entornos controlados.
