@@ -122,6 +122,27 @@ Se empleo los siguientes frameworks y dependencias:
    - Se implementa la automatización del despliegue utilizando Docker.
    - El Dockerfile y docker-compose.yml están configurados para asegurar la escalabilidad y la gestión de dependencias.
 
+### Automatización con Jenkins
+Hemos implementado un robusto proceso de automatización utilizando Jenkins para simplificar y mejorar nuestro ciclo de vida de desarrollo. A continuación, se muestra el script de la automatizacion en nuestro pipeline:
+
+ ```
+   stages {
+        stage('Clonar repositorio') {
+            steps {
+                git 'https://github.com/juanhuamani/PROYECTO-FINAL.git'
+            }
+        }
+
+         stage('Construccion automatica') {
+            steps {
+                script {
+                    if (isUnix()) {sh 'npm install'}
+                    else {bat 'npm install'}
+                }
+            }
+        }
+```
+
 # Analisis Estatico
 
 ## SonarQube
