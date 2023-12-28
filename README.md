@@ -32,7 +32,7 @@ Se empleo los siguientes frameworks y dependencias:
 
 ### Registro de Usuarios
 
-- Implementar un sistema de registro de usuarios con autenticación segura para la confianza de nuestros usuarios.
+- Implementar un sistema de registro de usuarios con autenticación segura.
 - Proporcionar perfiles de usuario que muestren las imágenes cargadas y los comentarios dejados por ese usuario.
 
 ### Carga de Imágenes
@@ -223,7 +223,58 @@ tage('JMeter tests') {
         }
 ```
 
+## Pruebas con Selenium
+Hemos implementado pruebas automatizadas utilizando Selenium para validar las funcionalidades críticas de nuestra aplicación. Las pruebas se centran en escenarios de uso común, asegurando que las acciones clave sean funcionales y proporcionen una experiencia de usuario coherente.
 
+- **Subir Imagen:**
+  - Automatizamos el proceso de carga de imágenes para garantizar que los usuarios puedan subir archivos de manera eficiente. Las pruebas validan la interfaz de carga, la correcta visualización de la imagen y la persistencia en la base de datos.
+- **Dar Me Gusta a una Imagen:**
+  - Utilizando Selenium, hemos automatizado la acción de dar "me gusta" a una imagen. Las pruebas verifican la actualización dinámica de la interfaz de usuario y la consistencia de los datos almacenados.
+- **Comentar Imagen:**
+  - Automatizamos el proceso de comentar en una imagen, asegurándonos de que los comentarios se registren correctamente y se presenten adecuadamente en la interfaz de usuario.
+- **Eliminar Imagen:**
+  - Validamos la funcionalidad de eliminación de imágenes mediante pruebas automatizadas con Selenium. Estas pruebas aseguran que el sistema maneje correctamente la eliminación de imágenes y actualice la interfaz y la base de datos de acuerdo.
+ 
+### Integración en Jenkins
+Estas pruebas de Selenium se han integrado en nuestro pipeline de Jenkins para ejecutarse automáticamente en cada ciclo de entrega.
+
+- **Configuración en Jenkins**
+
+  - Dentro del pipeline de Jenkins, hemos agregado una etapa específica para la ejecución de pruebas de Selenium:
+    
+ ```
+ stage('Ejecutar tests') {
+        steps {
+            script {
+                if (isUnix()) {sh 'npm test'}
+                else {bat 'npm test'}
+            }
+        }
+    }
+ ```
+## Integración de OWASP Dependency Check en Jenkins
+Para fortalecer la seguridad de nuestro proyecto, hemos integrado OWASP Dependency Check en nuestro pipeline de Jenkins. Esta herramienta automatiza la identificación de vulnerabilidades en las dependencias del proyecto, proporcionando una capa adicional de seguridad durante el proceso de desarrollo.
+
+### Pasos para la Integración
+
+- **Instalación de OWASP Dependency Check en el Servidor de Jenkins:**
+  - Asegúrate de que OWASP Dependency Check esté instalado en el servidor de Jenkins. Puedes seguir la documentación oficial para realizar la instalación: OWASP Dependency Check Installation.
+### Configuración en Jenkins:
+Agregamos la tarea de OWASP Dependency Check al pipeline de Jenkins para ejecutar automáticamente la verificación de vulnerabilidades en las dependencias del proyecto.
+    
+```
+stage('OWASP Dependency-Check Vulnerabilities') {
+          steps {
+            dependencyCheck additionalArguments: ''' 
+                        -o './'
+                        -s './'
+                        -f 'ALL' 
+                        --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+            
+            dependencyCheckPublisher pattern: 'dependency-check-report.xml'
+          }
+        }
+```
 # Instalación
 
 ## Instalación rápida
