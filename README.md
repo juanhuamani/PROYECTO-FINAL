@@ -241,6 +241,11 @@ Para llevar a cabo las pruebas de rendimiento, se configuró JMeter para simular
   - Se simula la interacción de usuarios que dan "me gusta" a una imagen específica, evaluando la eficiencia en tiempo de respuesta de esta acción.
 - **Comentar una Imagen:**
   - Se verifica el rendimiento al realizar la acción de comentar en una imagen, simulando la interacción típica de usuarios que participan activamente en la plataforma.
+    
+### Pruebas Jmeter
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/JmeterJMX.jpeg" alt="JmeterJMX" >
+  </a>
 
 ### Configuración del Job en Jenkins:
 Dentro del pipeline de Jenkins, hemos agregado una etapa específica para las pruebas de rendimiento utilizando un script que ejecuta las pruebas de JMeter.
@@ -259,6 +264,10 @@ tage('JMeter tests') {
             }
         }
 ```
+#### Archivo .csv
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/ArchivoCSV.jpeg" alt="ArchivoCSV" >
+  </a>
 
 ## Pruebas con Selenium
 Hemos implementado pruebas automatizadas utilizando Selenium para validar las funcionalidades críticas de nuestra aplicación. Las pruebas se centran en escenarios de uso común, asegurando que las acciones clave sean funcionales y proporcionen una experiencia de usuario coherente.
