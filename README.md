@@ -204,7 +204,12 @@ Los casos de prueba están implementados en los siguientes archivos:
   -  Contiene pruebas relacionadas con el acceso a la URL principal y la funcionalidad de los endpoints GET.
 - **test/imageControl.spec.js:**
   -  Incluye pruebas específicas para las funciones de control de imágenes, como la creación y eliminación, así como la gestión de likes.
-     
+    
+### Pruebas Jtest
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/Jtest.jpeg" alt="Jtest" >
+  </a>
+
 ### Integración en Jenkins
 Hemos integrado estas pruebas en nuestro pipeline de Jenkins para garantizar una evaluación continua de la funcionalidad y rendimiento de la aplicación.
 
