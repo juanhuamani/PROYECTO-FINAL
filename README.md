@@ -32,7 +32,7 @@ Se empleo los siguientes frameworks y dependencias:
 
 ### Registro de Usuarios
 
-- Implementar un sistema de registro de usuarios con autenticación segura.
+- Implementar un sistema de registro de usuarios con autenticación segura para la confianza de nuestros usuarios.
 - Proporcionar perfiles de usuario que muestren las imágenes cargadas y los comentarios dejados por ese usuario.
 
 ### Carga de Imágenes
