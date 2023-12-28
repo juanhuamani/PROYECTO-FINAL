@@ -154,7 +154,13 @@ Hemos implementado un robusto proceso de automatización utilizando Jenkins para
   - Se analiza la dependencia entre clases para garantizar un diseño modular y desacoplado.
 - **Duplicación de Código:**
   - Se identifican fragmentos duplicados para promover la reutilización y mantener un código más limpio.
+ 
+### Pruebas SonarQube
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/SonarQubeTestFinal.jpeg" alt="SonarQubeTestFinal" >
+  </a>
 
+### Integración de SonarQube en Jenkins
 Para integrar SonarQube en Jenkins, necesitas configurar el análisis del código con el servidor SonarQube. Aquí el codigo para configurar el bloque de análisis de SonarQube en el pipeline de Jenkins:
 
 
