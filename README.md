@@ -243,6 +243,9 @@ Para llevar a cabo las pruebas de rendimiento, se configuró JMeter para simular
   - Se verifica el rendimiento al realizar la acción de comentar en una imagen, simulando la interacción típica de usuarios que participan activamente en la plataforma.
     
 ### Pruebas Jmeter
+Creamos un archivo .jmx en JMeter para definir el escenario de pruebas, incluyendo acciones como obtener imágenes, dar "me gusta", y comentar.
+
+
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/JmeterJMX.jpeg" alt="JmeterJMX" >
   </a>
@@ -265,6 +268,11 @@ tage('JMeter tests') {
         }
 ```
 #### Archivo .csv
+Hemos implementado pruebas de rendimiento en nuestro pipeline de Jenkins utilizando Apache JMeter para evaluar el comportamiento de nuestra aplicación bajo carga simulada.
+
+JMeter produce un archivo .csv con datos detallados sobre el tiempo de respuesta de la aplicación durante la simulación.
+
+
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/ArchivoCSV.jpeg" alt="ArchivoCSV" >
   </a>
