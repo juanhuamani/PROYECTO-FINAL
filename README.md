@@ -168,6 +168,7 @@ Hemos implementado pruebas exhaustivas utilizando JTest y Supertest para asegura
   - Verificamos la creación exitosa de una imagen y la capacidad del sistema para gestionar la funcionalidad de "me gusta" asociada.
 - **Sobrecarga de Likes Soportada por el Servidor:**
   - Probamos el rendimiento del servidor al simular una sobrecarga de "me gusta", asegurándonos de que la aplicación pueda manejar la carga de manera eficiente.
+    
 ### Archivos de Pruebas
 
 Los casos de prueba están implementados en los siguientes archivos:
@@ -275,6 +276,57 @@ stage('OWASP Dependency-Check Vulnerabilities') {
           }
         }
 ```
+
+## Despliegue DOCKER
+### DOCKER-COMPOSE.YML:
+Hemos diseñado un archivo docker-compose.yml para orquestar nuestros servicios de manera eficiente en un entorno Docker. A continuación, se describen los componentes clave de esta configuración:
+
+#### Servicios Configurados
+
+El archivo docker-compose.yml se encarga de dos servicios fundamentales: web y mongo.
+
+- **Servicio Web:**
+  - Este servicio utiliza un contenedor con Node.js y expone el puerto 3000 para interactuar con nuestra aplicación. Además, establece una conexión con el servicio de MongoDB para garantizar una comunicación efectiva.
+- **Servicio MongoDB:**
+  - Configuramos un servicio de MongoDB para proporcionar la base de datos necesaria para el correcto funcionamiento de nuestra aplicación.
+
+### FRAGMENTO DEL DOCKERFILE:
+
+- Basado en la imagen oficial de Node.js versión 20.9.
+- Establece el directorio de trabajo en /usr/src/app.
+- Copia los archivos package.json y package-lock.json y ejecuta npm install para instalar dependencias.
+- Instala globalmente nodemon para facilitar el desarrollo.
+- Copia el resto de los archivos al contenedor.
+- Expone el puerto 3000.
+- Configura el comando de inicio para ejecutar el script dev definido en package.json.
+
+### Integración en Jenkins
+Este archivo docker-compose.yml también ha sido integrado en nuestro pipeline de Jenkins para facilitar la implementación y el despliegue automáticos de nuestros servicios en entornos controlados.
+
+### Configuración en Jenkins
+
+Dentro del pipeline de Jenkins, hemos agregado una etapa específica para la ejecución del archivo docker-compose.yml:
+
+```
+stage('Construir imagen Docker') {
+            steps {
+                script {
+                    if (isUnix()) {sh 'docker build -t proyecto-final .'}
+                    else {bat 'docker build -t proyecto-final .'}
+                }
+            }
+        }
+
+        stage('Despliegue automatico') {
+            steps {
+                script {
+                    if (isUnix()) {sh 'docker-compose up -d'}
+                    else {bat 'docker-compose up -d'}
+                }
+            }
+        }
+```
+
 # Instalación
 
 ## Instalación rápida
