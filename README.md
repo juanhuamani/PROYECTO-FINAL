@@ -160,6 +160,8 @@ Hemos implementado un robusto proceso de automatización utilizando Jenkins para
   - Se identifican fragmentos duplicados para promover la reutilización y mantener un código más limpio.
  
 ### Pruebas SonarQube
+Hemos implementado análisis continuo de código utilizando SonarQube en nuestro pipeline de Jenkins para asegurar la calidad y mantenibilidad de nuestro proyecto.
+
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/SonarQubeTestFinal.jpeg" alt="SonarQubeTestFinal" >
   </a>
@@ -210,6 +212,8 @@ Los casos de prueba están implementados en los siguientes archivos:
   -  Incluye pruebas específicas para las funciones de control de imágenes, como la creación y eliminación, así como la gestión de likes.
     
 ### Pruebas Jtest
+Hemos incorporado pruebas automatizadas en nuestro pipeline de Jenkins utilizando JTest y Supertest para garantizar la calidad y funcionalidad de nuestra aplicación.
+
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/Jtest.jpeg" alt="Jtest" >
   </a>
@@ -288,8 +292,7 @@ Hemos implementado pruebas automatizadas utilizando Selenium para validar las fu
   - Automatizamos el proceso de comentar en una imagen, asegurándonos de que los comentarios se registren correctamente y se presenten adecuadamente en la interfaz de usuario.
 - **Eliminar Imagen:**
   - Validamos la funcionalidad de eliminación de imágenes mediante pruebas automatizadas con Selenium. Estas pruebas aseguran que el sistema maneje correctamente la eliminación de imágenes y actualice la interfaz y la base de datos de acuerdo.
-    
-### Pruebas Selenium
+ 
 <a href="https://github.com/juanhuamani/PROYECTO-FINAL">
     <img src="docs/img/Selenium.jpeg" alt="Selenium" >
   </a>
