@@ -32,12 +32,12 @@ Se empleo los siguientes frameworks y dependencias:
 
 ### Registro de Usuarios
 
-- Implementar un sistema de registro de usuarios con autenticación segura.
+- Desarrollar un sistema que permita el registro de usuarios con un proceso de autenticación seguro.
 - Proporcionar perfiles de usuario que muestren las imágenes cargadas y los comentarios dejados por ese usuario.
 
 ### Carga de Imágenes
 
-- Permitir a los usuarios cargar imágenes con títulos descriptivos.
+- Permitir que los usuarios suban imágenes acompañadas de títulos descriptivos.
 - Validar y procesar las imágenes cargadas para garantizar la integridad y seguridad del sistema.
 
 ### Comentarios
@@ -48,7 +48,7 @@ Se empleo los siguientes frameworks y dependencias:
 ### Interacción Social
 
 - Implementar la opción de "me gusta" en las imágenes para que los usuarios puedan expresar su aprecio.
-- Facilitar la opción de compartir imágenes en otras plataformas sociales.
+- Facilitar la posibilidad de compartir fotos en distintas redes sociales.
 
 ### Diseño Responsivo
 
