@@ -280,7 +280,12 @@ Hemos implementado pruebas automatizadas utilizando Selenium para validar las fu
   - Automatizamos el proceso de comentar en una imagen, asegurándonos de que los comentarios se registren correctamente y se presenten adecuadamente en la interfaz de usuario.
 - **Eliminar Imagen:**
   - Validamos la funcionalidad de eliminación de imágenes mediante pruebas automatizadas con Selenium. Estas pruebas aseguran que el sistema maneje correctamente la eliminación de imágenes y actualice la interfaz y la base de datos de acuerdo.
- 
+    
+### Pruebas Selenium
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/Selenium.jpeg" alt="Selenium" >
+  </a>
+
 ### Integración en Jenkins
 Estas pruebas de Selenium se han integrado en nuestro pipeline de Jenkins para ejecutarse automáticamente en cada ciclo de entrega.
 
@@ -305,6 +310,12 @@ Para fortalecer la seguridad del proyecto, hemos integrado OWASP Dependency Chec
 
 - **Instalación de OWASP Dependency Check en el Servidor de Jenkins:**
   - Asegúrate de que OWASP Dependency Check esté instalado en el servidor de Jenkins. Puedes seguir la documentación oficial para realizar la instalación: OWASP Dependency Check Installation.
+ 
+### Pruebas Owasp
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/Owasp.jpeg" alt="Owasp" >
+  </a>
+
 ### Configuración en Jenkins:
 Agregamos la tarea de OWASP Dependency Check al pipeline de Jenkins para ejecutar automáticamente la verificación de vulnerabilidades en las dependencias del proyecto.
     
@@ -321,6 +332,10 @@ stage('OWASP Dependency-Check Vulnerabilities') {
           }
         }
 ```
+### Pruebas SonarQube
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/OwaspJenkins.jpeg" alt="OwaspJenkins" >
+  </a>
 
 ## Despliegue DOCKER
 ### DOCKER-COMPOSE.YML:
