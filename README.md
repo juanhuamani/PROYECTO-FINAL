@@ -142,6 +142,10 @@ Hemos implementado un robusto proceso de automatización utilizando Jenkins para
             }
         }
 ```
+### Ejecución  de Jenkins
+<a href="https://github.com/juanhuamani/PROYECTO-FINAL">
+    <img src="docs/img/JenkinsFinal.jpeg" alt="JenkinsFinal" >
+  </a>
 
 # Analisis Estatico
 
