@@ -111,7 +111,7 @@ Se empleo los siguientes frameworks y dependencias:
 
 - **Pruebas (JTest, Selenium):**
    - Se ejecutan pruebas automatizadas utilizando JTest y Selenium.
-   - Escenarios de prueba incluyen funcionalidades como acceso a URL principal, subida/eliminación de imágenes, creación de imágenes y likes.
+   - Escenarios de prueba que incluyen funcionalidades como acceso a URL principal, subida/eliminación de imágenes, creación de imágenes y likes.
 
 - **Análisis Estático con SonarQube:**
    - Se utiliza el plugin de SonarQube en Jenkins para analizar el código.
@@ -253,7 +253,7 @@ Estas pruebas de Selenium se han integrado en nuestro pipeline de Jenkins para e
     }
  ```
 ## Integración de OWASP Dependency Check en Jenkins
-Para fortalecer la seguridad de nuestro proyecto, hemos integrado OWASP Dependency Check en nuestro pipeline de Jenkins. Esta herramienta automatiza la identificación de vulnerabilidades en las dependencias del proyecto, proporcionando una capa adicional de seguridad durante el proceso de desarrollo.
+Para fortalecer la seguridad del proyecto, hemos integrado OWASP Dependency Check en nuestro pipeline de Jenkins. Esta herramienta automatiza la identificación de vulnerabilidades en las dependencias del proyecto, proporcionando una capa adicional de seguridad durante el proceso de desarrollo.
 
 ### Pasos para la Integración
 
